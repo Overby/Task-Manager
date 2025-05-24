@@ -121,6 +121,13 @@ button:hover {
     flex: 1;
 }
 
+.completion-date {
+    font-size: 0.85rem;
+    color: #2f855a;
+    margin-right: 1rem;
+    font-style: italic;
+}
+
 .delete-task {
     background-color: #e74c3c;
     padding: 0.5rem 1rem;

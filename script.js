@@ -34,7 +34,11 @@ function deleteTask(taskId) {
 function toggleTask(taskId) {
     tasks = tasks.map(task => {
         if (task.id === taskId) {
-            return { ...task, completed: !task.completed };
+            return { 
+                ...task, 
+                completed: !task.completed,
+                completedAt: !task.completed ? new Date().toISOString() : null
+            };
         }
         return task;
     });
@@ -62,9 +66,12 @@ function renderTasks(filter = 'all') {
         const li = document.createElement('li');
         li.className = `task-item ${task.completed ? 'completed' : ''}`;
         
+        const completionDate = task.completedAt ? new Date(task.completedAt).toLocaleDateString() : '';
+        
         li.innerHTML = `
             <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''}>
             <span class="task-text">${task.text}</span>
+            ${task.completed ? `<span class="completion-date">Completed: ${completionDate}</span>` : ''}
             <button class="delete-task">Delete</button>
         `;
 
