@@ -14,13 +14,22 @@
         
         <div class="task-form">
             <input type="text" id="taskInput" placeholder="Enter a new task">
-            <button id="addTask">Add Task</button>
+            <button id="addTask">Add One-Off Task</button>
+            <button id="addDailyTask">Add Daily Task</button>
         </div>
 
         <div class="task-filters">
+            <button class="filter-btn" data-filter="daily">Daily Tasks</button>
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="active">Active</button>
             <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div id="dailyProgress" class="daily-progress" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <span class="progress-text">0% Complete</span>
         </div>
 
         <ul id="taskList" class="task-list">
