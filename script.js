@@ -74,7 +74,8 @@ function updateDailyProgress() {
         new Date(task.completedAt).toDateString() === new Date().toDateString()
     ).length;
 
-    const percentage = Math.round((completedToday / totalDailyTasks) * 100);
+    // Ensure percentage doesn't exceed 100%
+    const percentage = Math.min(Math.round((completedToday / totalDailyTasks) * 100), 100);
     
     progressFill.style.width = `${percentage}%`;
     progressText.textContent = `${percentage}% Complete`;
